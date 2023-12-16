@@ -1,29 +1,15 @@
-<table>
-  <thead>
-    <tr>
-      <th>title</th>
-      <th>rating</th>
-      <th>total_gross</th>
-      <th>Description</th>
-      <th>Relesed On</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @movies.each do |movie|%>
-      <tr>
-        <td><%= movie.title%></td>
-        <td><%= movie.rating%></td>
-        <td><%= number_to_currency(movie.total_gross)%></td>
-        <td><%= movie.description%></td>
-        <td><%= movie.released_on%></td>
-      </tr>
-
-    <% end %>
-  </tbody>
-</table>
-
-
-
-
-
-
+<% @movies.each do |movie| %>
+  <section class="movie">
+    <div class="summary">
+      <h2>
+        <%= movie.title %>
+      </h2>
+      <h3>
+        <%= total_gross(movie) %>
+      </h3>
+      <p>
+        <%= truncate(movie.description, length: 150, separator: ' ') %>
+      </p>
+    </div>
+  </section>
+<% end %>
