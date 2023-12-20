@@ -9,7 +9,7 @@ module MoviesHelper
     end
   end
 
-  def day_and_time(movie)
+  def year_of(movie)
     truncate(movie.description, length: 40, seperate: ' ')
   end
 end
