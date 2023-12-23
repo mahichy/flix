@@ -1,6 +1,8 @@
 
 <%= form_with(model: movie) do |f|%>
 
+<%= render 'shared/errors', object: movie%>
+
   <%= f.label :title%>
   <%= f.text_field :title%>
 
@@ -8,7 +10,7 @@
   <%= f.text_area :description, row: 5%>
 
   <%= f.label :rating%>
-  <%= f.select :rating, Movie::RATINGS, prompt: "Pick one" %>
+ <%= f.select :rating, Movie::RATINGS, prompt: "Pick one" %>
 
   <%= f.label :total_gross%>
   <%= f.number_field :total_gross%>
