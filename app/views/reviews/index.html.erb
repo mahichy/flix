@@ -3,7 +3,6 @@
 <ul class="reviews">
   <% @reviews.each do |review| %>
     <li>
-      <%= render 'shared/stars', precent: review.stars_as_precent %>
       <p>
         <%= review.name %>
         <span class="date">
