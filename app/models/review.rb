@@ -6,7 +6,7 @@ class Review < ApplicationRecord
 
   STARS = [1, 2, 3, 4, 5]
   validates :stars, inclusion: {
-in: STARS,
+  in: STARS,
   message: "must be between 1 and 5"
   }
 end
