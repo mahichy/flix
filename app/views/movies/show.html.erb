@@ -9,6 +9,7 @@
     </h2>
     <h2>
       <div class="reviews">
+        <%= average_stars(@movie)%>
         <%= link_to pluralize(@movie.reviews.size, "review"), movie_reviews_path(@movie)%>
       </div>
     </h2>
