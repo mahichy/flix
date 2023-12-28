@@ -1,7 +1,10 @@
 <%= form_with(model: user) do |f|%>
 
   <%= render 'shared/errors', object: user %>
-
+  
+  <%= f.label :username %>
+  <%= f.text_field :username, placeholder: "Alphanumeric characters only!" %>
+  
   <%= f.label :name%>
   <%= f.text_field :name, autofocus: true%>
 
@@ -14,6 +17,9 @@
   <%= f.label :password_confirmation, "Confirm Password" %>
   <%= f.password_field :password_confirmation %>
 
-  <%= f.submit %>
-
+  <% if user.new_record?%>
+  <%= f.submit "Create account"%>
+  <% else %>
+      <%= f.submit "Update account"%>
+  <% end%>
 <% end%>
