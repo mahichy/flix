@@ -20,6 +20,8 @@
   </section>
 <% end %>
 
-<section class="admin">
-  <%= link_to 'Add New Movies', new_movie_path, class: "btn btn-primary"	%>
-</section>
+<% if current_user_admin?%>
+  <section class="admin">
+    <%= link_to 'Add New Movies', new_movie_path, class: "btn btn-primary"	%>
+  </section>  
+<% end %>
