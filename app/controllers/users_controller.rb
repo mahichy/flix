@@ -11,20 +11,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @reviews = @user.reviews
   end
 
   def new
   @user = User.new
   end
 
+  
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to (session[:intended_url] || user),                   notice: "Welcome back, #{user.name}!"
-      session[:intended_url] = nil
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user, notice: "Thanks for signing up!"
     else
-      flash.now[:alert] = "Invalid email/password combination!"
       render :new, status: :unprocessable_entity
     end
   end
