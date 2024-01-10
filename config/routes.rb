@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'movies#index'
 
+  get "movies/filter/:filter" => "movies#index", as: :filtered_movies 
+
   # get 'movies' => "movies#index"
   # get 'movies/new' => 'movies#new'
   # get 'movies/:id' => "movies#show", as: 'movie'
