@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  
   before_action :require_signin
 
   def create
@@ -6,7 +7,6 @@ class FavoritesController < ApplicationController
     @movie.favorites.create!(user: current_user)
 
     redirect_to @movie
-    
   end
 
   def destroy
@@ -16,4 +16,5 @@ class FavoritesController < ApplicationController
     movie = Movie.find_by!(slug: params[:movie_id])
     redirect_to movie
   end
+
 end
